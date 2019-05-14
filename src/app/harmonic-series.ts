@@ -13,13 +13,9 @@ const harmonicSeries = () => {
   submit.innerText = "Submit";
   base.appendChild(inputBox1);
   base.appendChild(submit);
-
-  let tmp: number = 0;
-  const div: HTMLElement = document.createElement("div");
-  const answer: HTMLLabelElement = document.createElement("label");
-
-  submit.onclick = () => {
-    result = +inputBox1.value;
+  const harmonic = (n: number): number => {
+    result = +n;
+    let tmp: number = 0;
     if (result <= 0) {
       console.log((resultMessage = "The Number should be > 0"));
       return;
@@ -28,6 +24,13 @@ const harmonicSeries = () => {
     for (let i: number = 1; i <= result; i++) {
       tmp += 1 / i;
     }
+    return tmp;
+  };
+  const div: HTMLElement = document.createElement("div");
+  const answer: HTMLLabelElement = document.createElement("label");
+
+  submit.onclick = () => {
+    let tmp = harmonic(+inputBox1.value);
     answer.textContent = resultMessage + +tmp;
 
     div.appendChild(answer);
