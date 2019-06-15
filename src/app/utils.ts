@@ -74,6 +74,7 @@ export function harmonicSeries(value: number): number {
   }
   return sum;
 }
+
 /**
  *
  * @param value number
@@ -96,19 +97,22 @@ export function primeFactors(value: number): string {
     }
   }
   strResult = (value !== 1 ? value + "" : "") + strResult + " = " + original;
-  let f = 3;
   if (
     strResult.charAt(0) === "" ||
     strResult.charAt(0) === " " ||
     strResult.charAt(0) === "*"
   )
     strResult = strResult.substr(2);
-  while (f >= 0) {
-    console.log(strResult.charAt(f));
-    f--;
-  }
 
   return strResult;
+}
+
+export function numberOfHandShake(n: number): number {
+  let sum: number = 0;
+  for (let i = 0; i < n; i++) {
+    sum += i;
+  }
+  return sum;
 }
 
 //utils
@@ -124,12 +128,4 @@ function evenNumber(value: number): boolean {
     return true;
   }
   return false;
-}
-
-export function numberOfHandShake(n: number): number {
-  let sum: number = 0;
-  for (let i = 0; i < n; i++) {
-    sum += i;
-  }
-  return sum;
 }
