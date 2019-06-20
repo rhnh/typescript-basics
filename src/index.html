@@ -5,18 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Typescript basics</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div id="app">
-      <div id="input-box">
-        <input type="text" id="input-value" />
-        <div>
-          <label>Result</label>
-          <p id="result" />
+      <header class="top-banner">
+        <div class="top-banner-inner"><p>Basic Stuffs With Typescript</p></div>
+      </header>
+
+      <div class="modal" id="modal">
+        <div class="modal-placeholder">
+          <div class="modal-body" id="modal-body">
+            <button class="close" id="close"></button>
+            <p class="description" id="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Exercitationem quasi sed voluptates quidem consequuntur, delectus
+              vel architecto aspernatur ducimus, harum deleniti molestias
+              adipisci non suscipit corporis quod nihil tempore quaerat.
+            </p>
+            <form id="input-form"></form>
+            <button class="calculate" id="calculate">Calculate</button>
+            <button class="cancel" id="cancel">Cancel</button>
+          </div>
         </div>
       </div>
-      <div id="buttons">
+      <div class="buttons">
         <div>
           <button id="harmonic-series">Harmonic Series</button>
         </div>
@@ -33,7 +46,13 @@
           <button id="prime-factor">Prime Factor</button>
         </div>
       </div>
+      <footer class="page-footer">
+        <div class="page-footer__inner">
+          Source Code
+          <a href="https://github.com/rhnh/typescript-basics-stuff">book</a>
+        </div>
+      </footer>
     </div>
-    <script src="./bundle.js"></script>
+    <script src="./index.ts"></script>
   </body>
 </html>
