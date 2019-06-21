@@ -1,6 +1,6 @@
 import * as utils from "./app/utils";
 import * as display from "./app/display";
-
+import "./style.css";
 const harmonicSeriesBtn = document.getElementById("harmonic-series");
 const leibnizSeriesBtn = document.getElementById("leibniz-series");
 const sumOfOddsBtn = document.getElementById("sum-of-odds");
@@ -23,7 +23,7 @@ leibnizSeriesBtn.addEventListener("click", () => {
 });
 
 isPrime.addEventListener("click", () => {
-  let desc = "Is the given number a prime number";
+  let desc = "Is the given number a prime number ?";
   displayModal(utils.isPrime, true, desc);
 });
 
