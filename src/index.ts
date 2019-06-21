@@ -1,4 +1,5 @@
 import * as utils from "./app/utils";
+import * as display from "./app/display";
 
 const harmonicSeriesBtn = document.getElementById("harmonic-series");
 const leibnizSeriesBtn = document.getElementById("leibniz-series");
@@ -9,44 +10,51 @@ const close = document.getElementById("close");
 const cancel = document.getElementById("cancel");
 const primeFactor = document.getElementById("prime-factor");
 const modalForm = document.getElementById("input-form");
+const description = document.getElementById("description");
 
 harmonicSeriesBtn.addEventListener("click", () => {
-  displayModal(utils.harmonicSeries);
+  let desc = "1 + 1/2+ 1/3 + 1/4";
+  displayModal(utils.harmonicSeries, true, desc);
 });
 
 leibnizSeriesBtn.addEventListener("click", () => {
-  displayModal(utils.LeibnizSeries);
+  let desc = "Leibniz Series: π/4 = 1/1 - 1/3 + 1/5 - 1 /7 + 1/9 ± ...";
+  displayModal(utils.LeibnizSeries, true, desc);
 });
 
 isPrime.addEventListener("click", () => {
-  displayModal(utils.isPrime);
+  let desc = "Is the given number a prime number";
+  displayModal(utils.isPrime, true, desc);
 });
 
 primeFactor.addEventListener("click", () => {
-  displayModal(utils.primeFactors);
+  let desc = "Shows prime factor of a number";
+  displayModal(utils.primeFactors, true, desc);
 });
 
 sumOfOddsBtn.addEventListener("click", () => {
-  displayModal(utils.sumOfOddNumbers);
+  let desc = "Sums odd numbers";
+  displayModal(utils.sumOfOddNumbers, true, desc);
 });
 close.addEventListener("click", () => {
   modal.style.display = "none";
-  utils.removeAllChildren(modalForm);
+  display.removeAllChildren(modalForm);
 });
 
 cancel.addEventListener("click", () => {
   modal.style.display = "none";
-  utils.removeAllChildren(modalForm);
+  display.removeAllChildren(modalForm);
 });
-function displayModal(callBack) {
+function displayModal(callBack, isNumericField, desc) {
   modal.style.display = "block";
   let calculate = document.getElementById("calculate");
-  let inputBox = utils.addInputBox("This is an inputBox");
+  let inputBox = display.addInputBox("This is an inputBox", isNumericField);
   modalForm.appendChild(inputBox);
-  utils.addParagraph("description", " Harmonic Series ");
+  display.addParagraph("description", " Harmonic Series ");
   let parentDiv = document.getElementById("formName").parentNode;
   modal.style.display = "block";
   let result = document.createElement("p");
+  description.innerText = desc;
   calculate.addEventListener("click", () => {
     result.innerText = callBack(+inputBox.value).toString();
   });

@@ -80,6 +80,7 @@ export function harmonicSeries(value: number): number {
  * @param value number
  */
 export function primeFactors(value: number): string {
+  if (!Number(value)) return "0";
   if (isPrime(value)) {
     return `${value} is a prime number`;
   }
@@ -128,27 +129,4 @@ function evenNumber(value: number): boolean {
     return true;
   }
   return false;
-}
-
-export function addInputBox(inputText: string): HTMLInputElement {
-  let inputBox = document.createElement("input");
-  inputBox.className = "form-name";
-  inputBox.setAttribute("id", "formName");
-  inputBox.placeholder = inputText;
-  return inputBox;
-}
-
-export function addParagraph(
-  elementId: string,
-  desc: string
-): HTMLParagraphElement {
-  let element = <HTMLParagraphElement>document.getElementById(elementId);
-  element.innerText = desc;
-  return element;
-}
-
-export function removeAllChildren(element): void {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
 }
