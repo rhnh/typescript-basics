@@ -111,3 +111,10 @@ select {
   text-align: center;
   font-size: 0.8rem;
 }
+#result {
+  background: #dff3aa;
+  color: green;
+  padding: 2em;
+  border: 1px solid green;
+  border-radius: 0.2em;
+}
