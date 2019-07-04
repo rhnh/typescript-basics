@@ -119,6 +119,23 @@ export function numberOfHandShake(n: number): number {
   return sum;
 }
 
+export function JWallisPI(k: number): number {
+  let pi: number = 1;
+  let i = 1,
+    n = 2,
+    z = 1;
+  while (i <= k) {
+    pi *= n / z;
+    if (i % 2 === 0) {
+      n += 2;
+    } else {
+      z += 2;
+    }
+    i++;
+  }
+  return pi * 2;
+}
+
 //utils
 function oddNumber(value: number): boolean {
   if (!evenNumber(value)) {

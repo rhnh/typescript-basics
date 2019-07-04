@@ -1,3 +1,7 @@
+const modalForm = document.getElementById("input-form");
+const modal = document.getElementById("modal");
+const close = document.getElementById("close");
+const cancel = document.getElementById("cancel");
 function addElement(
   elementId: string,
   elementType: string,
@@ -47,4 +51,33 @@ export function getInputValues(modalForm) {
     }
   }
   return values;
+}
+
+close.addEventListener("click", () => {
+  modal.style.display = "none";
+  removeAllChildren(modalForm);
+});
+cancel.addEventListener("click", () => {
+  modal.style.display = "none";
+  removeAllChildren(modalForm);
+});
+
+export function displayModal(callBack, desc, numberInputBox) {
+  const description = document.getElementById("description");
+
+  let CalculateBtn = document.getElementById("calculate"),
+    result = document.createElement("p");
+  result.setAttribute("id", "result");
+  addMultipleElement(numberInputBox, "INPUT", "formName", modalForm);
+  addParagraph("description", " Harmonic Series ");
+  description.innerText = desc;
+
+  CalculateBtn.addEventListener("click", () => {
+    let values = getInputValues(modalForm);
+    let v = callBack(...values);
+    result.innerText = v;
+  });
+  modalForm.appendChild(result);
+
+  modal.style.display = "block";
 }

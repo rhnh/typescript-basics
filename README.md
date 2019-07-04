@@ -3,4 +3,6 @@ Just playing around.
 
 # yarn install
 
-# yarn start
+# yarn dev
+
+# http://localhost:8080
