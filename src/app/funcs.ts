@@ -1,3 +1,5 @@
+const getArray = x => Array.from([x].keys());
+
 /**
  * π/4 = 1/1 - 1/3 + 1/5 - 1 /7 + 1/9 ± ...
  */
@@ -18,7 +20,7 @@ export function LeibnizSeries(value: number): number {
   return (sum *= 4);
 }
 
-/**
+/** Exponential Series
  *  e^x = 1 + x + (x^2)/2! + (x^3)/3! +( x^4)/4! + (x^5)/5! +... + (x^n)/n!
  * @param x number
  * @param n number
@@ -33,7 +35,7 @@ export function exponentialSeries(x: number, n: number): number {
   return result;
 }
 
-/**
+/** Sum of Odds Numbers
  * 1+3+5....
  */
 export function sumOfOddNumbers(value: number): number {
@@ -110,6 +112,13 @@ export function primeFactors(value: number): string {
 
   return strResult;
 }
+//utils
+function oddNumber(value: number): boolean {
+  if (!evenNumber(value)) {
+    return true;
+  }
+  return false;
+}
 
 export function numberOfHandShake(n: number): number {
   let sum: number = 0;
@@ -119,6 +128,7 @@ export function numberOfHandShake(n: number): number {
   return sum;
 }
 
+//Test
 export function JWallisPI(k: number): number {
   let pi: number = 1;
   let i = 1,
@@ -134,14 +144,6 @@ export function JWallisPI(k: number): number {
     i++;
   }
   return pi * 2;
-}
-
-//utils
-function oddNumber(value: number): boolean {
-  if (!evenNumber(value)) {
-    return true;
-  }
-  return false;
 }
 
 function evenNumber(value: number): boolean {
