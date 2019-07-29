@@ -34,7 +34,24 @@ test("Harmonic Series", () => {
   expect(funcs.harmonicSeries(1000)).toBeCloseTo(7.4854709, 5);
   expect(funcs.harmonicSeries(1000000)).toBeCloseTo(14.3927267, 5);
 });
+
 test("John Wallis PI calculating method", () => {
   expect(funcs.JWallisPI(100)).toBeCloseTo(3.126079, 5);
   expect(funcs.JWallisPI(100000)).toBeCloseTo(3.141577, 5);
+});
+
+test("Factorial", () => {
+  expect(funcs.memoizedFactorial(0)).toBe(1);
+  expect(funcs.memoizedFactorial(1)).toBe(1);
+  expect(funcs.memoizedFactorial(5)).toBe(120);
+  expect(funcs.memoizedFactorial(3)).toBe(6);
+  expect(funcs.memoizedFactorial(7)).toBe(5040);
+  expect(funcs.memoizedFactorial(12)).toBe(479001600);
+});
+
+test("Handshake", () => {
+  expect(funcs.memoizedFactorial(0)).toBe(1);
+  expect(funcs.numberOfHandShake(10)).toBe(45);
+  expect(funcs.numberOfHandShake(100)).toBe(4950);
+  expect(funcs.numberOfHandShake(500)).toBe(124750);
 });
