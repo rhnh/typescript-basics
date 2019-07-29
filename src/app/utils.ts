@@ -1,83 +1,36 @@
-const modalForm = document.getElementById("input-form");
-const modal = document.getElementById("modal");
-const close = document.getElementById("close");
-const cancel = document.getElementById("cancel");
-function addElement(
-  elementId: string,
-  elementType: string,
-  parentElement: HTMLElement
-): HTMLElement {
-  const child = document.createElement(elementType);
-  child.className = "form-name";
-  child.setAttribute("id", elementId);
-  parentElement.appendChild(child);
-  return parentElement;
-}
-
-export function addMultipleElement(
-  numberOfElements: number,
-  elementType: string,
-  elementId,
-  parentElement: HTMLElement
-): HTMLElement {
-  let htmlElements: HTMLElement = null;
-  for (let i = 0; i < numberOfElements; i++) {
-    let id = i + 1;
-    htmlElements = addElement(elementId + id, elementType, parentElement);
+//utils
+export function oddNumber(value: number): boolean {
+  if (!isEven(value)) {
+    return true;
   }
-  return htmlElements;
+  return false;
 }
 
-export function removeAllChildren(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+//
+export function isEven(value: number): boolean {
+  if (value % 2 === 0) {
+    return true;
   }
+  return false;
 }
 
-export function addParagraph(
-  elementId: string,
-  desc: string
-): HTMLParagraphElement {
-  let element = <HTMLParagraphElement>document.getElementById(elementId);
-  element.innerText = desc;
-  return element;
-}
+/**
+ * O(sqrt(n))
+ * @param value number
+ */
+export function isPrime(value: number): boolean {
+  if (value <= 1) return false;
+  if (value <= 3) return true; // 2 or 3 => true
 
-export function getInputValues(modalForm) {
-  let values = [];
-  for (let i = 0; i < modalForm.length; i++) {
-    if (modalForm[i].nodeName === "INPUT") {
-      values.push(modalForm[i].value);
+  if (value % 2 === 0 || value % 3 === 0) {
+    // can be divided by 2 or 3 => false
+    return false;
+  }
+  for (let i = 5; i * i <= value; i = i + 6) {
+    //value >= 25 ?
+    if (value % i === 0 || value % (i + 2) === 0) {
+      return false;
     }
   }
-  return values;
-}
-
-close.addEventListener("click", () => {
-  modal.style.display = "none";
-  removeAllChildren(modalForm);
-});
-cancel.addEventListener("click", () => {
-  modal.style.display = "none";
-  removeAllChildren(modalForm);
-});
-
-export function displayModal(callBack, desc, numberInputBox) {
-  const description = document.getElementById("description");
-
-  let CalculateBtn = document.getElementById("calculate"),
-    result = document.createElement("p");
-  result.setAttribute("id", "result");
-  addMultipleElement(numberInputBox, "INPUT", "formName", modalForm);
-  addParagraph("description", " Harmonic Series ");
-  description.innerText = desc;
-
-  CalculateBtn.addEventListener("click", () => {
-    let values = getInputValues(modalForm);
-    let v = callBack(...values);
-    result.innerText = v;
-  });
-  modalForm.appendChild(result);
-
-  modal.style.display = "block";
+  return true;
 }
