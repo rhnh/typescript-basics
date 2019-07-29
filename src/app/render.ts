@@ -71,7 +71,6 @@ export function displayModal(callBack, desc, numberInputBox) {
   addMultipleElement(numberInputBox, "INPUT", "formName", modalForm);
   addParagraph("description", " Harmonic Series ");
   description.innerText = desc;
-
   CalculateBtn.addEventListener("click", () => {
     let values = getInputValues(modalForm);
     let v = callBack(...values);
@@ -80,4 +79,15 @@ export function displayModal(callBack, desc, numberInputBox) {
   modalForm.appendChild(result);
 
   modal.style.display = "block";
+}
+export function createButton(id, txt) {
+  let b: HTMLButtonElement = document.createElement("button");
+  b.setAttribute("id", `${id}`);
+  b.innerHTML = txt;
+
+  let div: HTMLElement = document.createElement("div");
+  div.appendChild(b);
+  let buttonClass = document.getElementById("fButton");
+  buttonClass.appendChild(div);
+  return b;
 }

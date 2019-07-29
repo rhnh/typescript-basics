@@ -4,6 +4,7 @@ import { isPrime } from "./utils";
  * @param value number
  */
 export function primeFactors(value: number): string {
+  value = +value;
   if (!Number(value)) return "0";
   if (isPrime(value)) {
     return `${value} is a prime number`;

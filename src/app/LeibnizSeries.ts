@@ -22,7 +22,7 @@ import { isEven } from "./utils";
 
 export const LeibnizSeries = (value: number): number => {
   return (
-    Array.from(Array(value * 2).keys())
+    Array.from(Array(+value * 2).keys())
       .filter(x => !isEven(x))
       .reduce((a: number, c: number, i: number) => {
         let v = isEven(i) ? 1 : -1;

@@ -13,7 +13,7 @@ import { isEven } from "./utils";
 //   return sum;
 // }
 export const sumOfOddNumbers = (value: number): number => {
-  let res = Array.from(Array(value).keys()).map(x => x + 1);
+  let res = Array.from(Array(+value).keys()).map(x => x + 1);
   return res.reduce((a, c) => {
     let res = !isEven(c) ? c : 0;
     return a + res;

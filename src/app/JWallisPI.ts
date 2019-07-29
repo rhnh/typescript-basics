@@ -21,7 +21,7 @@ export const JWallisPI = (value: number): number => {
   let z = 1,
     n = 2;
   let p = 1;
-  Array.from(Array(value).keys())
+  Array.from(Array(+value).keys())
     .map(x => x + 1)
     .map(x => {
       p *= n / z;
