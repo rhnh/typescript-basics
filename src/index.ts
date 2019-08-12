@@ -11,7 +11,7 @@ import * as render from "./app/render";
 import { mjb } from "./app/marie_jose_bertin";
 
 let handshakeBtn = render.createButton("handshake", "HandShake");
-let mjbBtn = render.createButton("154", "154");
+let mjbBtn = render.createButton("153", "153");
 
 let numberOfInputBox = 0;
 
@@ -73,6 +73,7 @@ JWallis.addEventListener("click", () => {
   numberOfInputBox = 1;
   render.displayModal(JWallisPI, desc, numberOfInputBox);
 });
+//Satz 153
 mjbBtn.addEventListener("click", () => {
   let desc = ` The given number has to be dividable by 3, the following number would be the sum of \n its digits \n example for 33: \n   54,189,1242,81,513,153,153 `;
   numberOfInputBox = 1;
