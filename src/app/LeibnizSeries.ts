@@ -1,4 +1,4 @@
-import { isEven } from "./utils";
+import { isEven, isOdd } from "./utils";
 //########################################## Leibniz Series's summation ###################################
 /** Leibniz series' summation with loops
  * π/4 = 1/1 - 1/3 + 1/5 - 1 /7 + 1/9 ± ...
@@ -23,7 +23,7 @@ import { isEven } from "./utils";
 export const LeibnizSeries = (value: number): number => {
   return (
     Array.from(Array(+value * 2).keys())
-      .filter(x => !isEven(x))
+      .filter(x => isOdd(x))
       .reduce((a: number, c: number, i: number) => {
         let v = isEven(i) ? 1 : -1;
         return a + v / c;

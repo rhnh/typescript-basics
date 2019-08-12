@@ -1,17 +1,11 @@
 //utils
-export function oddNumber(value: number): boolean {
-  if (!isEven(value)) {
-    return true;
-  }
-  return false;
+export function isOdd(value: number): boolean {
+  return isEven(value) ? false : true;
 }
 
 //
 export function isEven(value: number): boolean {
-  if (value % 2 === 0) {
-    return true;
-  }
-  return false;
+  return value % 2 === 0;
 }
 
 /**

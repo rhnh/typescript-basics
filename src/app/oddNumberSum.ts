@@ -12,6 +12,24 @@ import { isEven } from "./utils";
 //   }
 //   return sum;
 // }
+/**
+ *  recurssion
+ * @param value number
+ *
+
+export function sumOfOddNumbers(n: number): number {
+  if (n === 0) {
+    return n;
+  } else {
+    if (n % 2 !== 0) {
+      return n + sumOfOddNumbers(n - 1);
+    } else {
+      return sumOfOddNumbers(n - 1);
+    }
+  }
+}
+*/
+
 export const sumOfOddNumbers = (value: number): number => {
   let res = Array.from(Array(+value).keys()).map(x => x + 1);
   return res.reduce((a, c) => {

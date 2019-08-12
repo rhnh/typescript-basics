@@ -2,6 +2,7 @@ const modalForm = document.getElementById("input-form");
 const modal = document.getElementById("modal");
 const close = document.getElementById("close");
 const cancel = document.getElementById("cancel");
+
 function addElement(
   elementId: string,
   elementType: string,
@@ -74,6 +75,9 @@ export function displayModal(callBack, desc, numberInputBox) {
   CalculateBtn.addEventListener("click", () => {
     let values = getInputValues(modalForm);
     let v = callBack(...values);
+    if (Array.isArray(v)) {
+      v = v.join();
+    }
     result.innerText = v;
   });
   modalForm.appendChild(result);

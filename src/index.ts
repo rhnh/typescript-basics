@@ -8,10 +8,13 @@ import { numberOfHandShake } from "./app/numberOfHandShake";
 import "./style.css";
 import * as funcs from "./app/utils";
 import * as render from "./app/render";
+import { mjb } from "./app/marie_jose_bertin";
+
+let handshakeBtn = render.createButton("handshake", "HandShake");
+let mjbBtn = render.createButton("154", "154");
 
 let numberOfInputBox = 0;
 
-let handshakeBtn = render.createButton("handshake", "HandShake");
 const harmonicSeriesBtn = render.createButton(
   "harmonic-series",
   "Harmonic Series Sum"
@@ -69,6 +72,11 @@ JWallis.addEventListener("click", () => {
   let desc = "pi/2 = 2/1 * 2/3 * 4/3 * 4/5 * 6/5 * 8/7* 8/9 +, .. ";
   numberOfInputBox = 1;
   render.displayModal(JWallisPI, desc, numberOfInputBox);
+});
+mjbBtn.addEventListener("click", () => {
+  let desc = ` The given number has to be dividable by 3, the following number would be the sum of \n its digits \n example for 33: \n   54,189,1242,81,513,153,153 `;
+  numberOfInputBox = 1;
+  render.displayModal(mjb, desc, numberOfInputBox);
 });
 
 exponential.addEventListener("click", () => {
