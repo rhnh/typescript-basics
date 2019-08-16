@@ -5,16 +5,28 @@ import { sumOfOddNumbers } from "./app/oddNumberSum";
 import { exponentialSeries } from "./app/expo_series_sum";
 import { LeibnizSeries } from "./app/LeibnizSeries";
 import { numberOfHandShake } from "./app/numberOfHandShake";
+
 import "./style.css";
 import * as funcs from "./app/utils";
 import * as render from "./app/render";
 import { mjb } from "./app/marie_jose_bertin";
+import { flip } from "./app/flip";
+
+//#################################################
+//Handshake
+const flipBtn = render.createButton("flip-number", "Flip The Number");
+flipBtn.addEventListener("click", () => {
+  const desc = "Give a number to flip it. Example 123 would be 321!";
+  const numberOfInputBox = 1;
+  render.displayModal(flip, desc, numberOfInputBox);
+});
 
 //#################################################
 //Handshake
 const handshakeBtn = render.createButton("handshake", "HandShake");
 handshakeBtn.addEventListener("click", () => {
-  const desc = "This is a desc";
+  const desc =
+    "A guy in a party shakes the hands of everyone once. How hand times does he shakes \n hands of peole in total";
   const numberOfInputBox = 1;
   render.displayModal(numberOfHandShake, desc, numberOfInputBox);
 });
@@ -51,7 +63,7 @@ leibnizSeriesBtn.addEventListener("click", () => {
   const numberOfInputBox = 1;
   render.displayModal(LeibnizSeries, desc, numberOfInputBox);
 });
-
+let windowVar;
 //#################################################
 //Sum of Odd Series
 const sumOfOddsBtn = render.createButton("sum-of-odds", "Sum Odd Numbers");
