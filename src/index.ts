@@ -26,7 +26,7 @@ flipBtn.addEventListener("click", () => {
 const handshakeBtn = render.createButton("handshake", "HandShake");
 handshakeBtn.addEventListener("click", () => {
   const desc =
-    "A guy in a party shakes the hands of everyone once. How hand times does he shakes \n hands of peole in total";
+    "In a party n person shakes with each others, how many hand shakes were made in total";
   const numberOfInputBox = 1;
   render.displayModal(numberOfHandShake, desc, numberOfInputBox);
 });
