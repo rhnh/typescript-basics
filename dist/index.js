@@ -7,15 +7,25 @@ var oddNumberSum_1 = require("./app/oddNumberSum");
 var expo_series_sum_1 = require("./app/expo_series_sum");
 var LeibnizSeries_1 = require("./app/LeibnizSeries");
 var numberOfHandShake_1 = require("./app/numberOfHandShake");
+var fib_1 = require("./app/fib");
 require("./style.css");
 var funcs = require("./app/utils");
 var render = require("./app/render");
 var marie_jose_bertin_1 = require("./app/marie_jose_bertin");
+var flip_1 = require("./app/flip");
+//#################################################
+//Handshake
+var flipBtn = render.createButton("flip-number", "Flip The Number");
+flipBtn.addEventListener("click", function () {
+    var desc = "Give a number to flip it. Example 123 would be 321!";
+    var numberOfInputBox = 1;
+    render.displayModal(flip_1.flip, desc, numberOfInputBox);
+});
 //#################################################
 //Handshake
 var handshakeBtn = render.createButton("handshake", "HandShake");
 handshakeBtn.addEventListener("click", function () {
-    var desc = "This is a desc";
+    var desc = "In a party n person shakes with each others, how many hand shakes were made in total";
     var numberOfInputBox = 1;
     render.displayModal(numberOfHandShake_1.numberOfHandShake, desc, numberOfInputBox);
 });
@@ -83,5 +93,13 @@ JWallis.addEventListener("click", function () {
     var desc = "pi/2 = 2/1 * 2/3 * 4/3 * 4/5 * 6/5 * 8/7* 8/9 +, .. ";
     var numberOfInputBox = 1;
     render.displayModal(JWallisPI_1.JWallisPI, desc, numberOfInputBox);
+});
+//#################################################
+//John Wallis
+var memoizedFibBtn = render.createButton("memoized-fib", "Fibonacci");
+memoizedFibBtn.addEventListener("click", function () {
+    var desc = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...";
+    var numberOfInputBox = 1;
+    render.displayModal(fib_1.memoizedFib, desc, numberOfInputBox);
 });
 //# sourceMappingURL=index.js.map

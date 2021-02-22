@@ -5,7 +5,7 @@ import { sumOfOddNumbers } from "./app/oddNumberSum";
 import { exponentialSeries } from "./app/expo_series_sum";
 import { LeibnizSeries } from "./app/LeibnizSeries";
 import { numberOfHandShake } from "./app/numberOfHandShake";
-import { memoizedFib } from "./app/fib";
+import { fib } from "./app/fib";
 import "./style.css";
 import * as funcs from "./app/utils";
 import * as render from "./app/render";
@@ -119,5 +119,5 @@ const memoizedFibBtn = render.createButton("memoized-fib", "Fibonacci");
 memoizedFibBtn.addEventListener("click", () => {
   const desc = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...";
   const numberOfInputBox = 1;
-  render.displayModal(memoizedFib, desc, numberOfInputBox);
+  render.displayModal(fib, desc, numberOfInputBox);
 });

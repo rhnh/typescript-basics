@@ -1,11 +1,11 @@
-import { fib as memoizedFib } from "../fib";
+import { fib } from "../fib";
 describe("Fib", () => {
   test("valid", () => {
-    const res = memoizedFib(7);
+    const res = fib(7);
     expect(res).toBe(13);
   });
   test("invalid", () => {
-    const res = memoizedFib(7);
+    const res = fib(7);
     expect(res).not.toBe(27);
   });
 });
