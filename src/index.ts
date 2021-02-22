@@ -5,7 +5,7 @@ import { sumOfOddNumbers } from "./app/oddNumberSum";
 import { exponentialSeries } from "./app/expo_series_sum";
 import { LeibnizSeries } from "./app/LeibnizSeries";
 import { numberOfHandShake } from "./app/numberOfHandShake";
-
+import { memoizedFib } from "./app/fib";
 import "./style.css";
 import * as funcs from "./app/utils";
 import * as render from "./app/render";
@@ -111,4 +111,13 @@ JWallis.addEventListener("click", () => {
   const desc = "pi/2 = 2/1 * 2/3 * 4/3 * 4/5 * 6/5 * 8/7* 8/9 +, .. ";
   const numberOfInputBox = 1;
   render.displayModal(JWallisPI, desc, numberOfInputBox);
+});
+
+//#################################################
+//John Wallis
+const memoizedFibBtn = render.createButton("memoized-fib", "Fibonacci");
+memoizedFibBtn.addEventListener("click", () => {
+  const desc = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...";
+  const numberOfInputBox = 1;
+  render.displayModal(memoizedFib, desc, numberOfInputBox);
 });
