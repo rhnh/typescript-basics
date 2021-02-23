@@ -1,4 +1,4 @@
-import { memoizedFactorial } from "./memoizedFactorial";
+import { memoize } from "./utils";
 
 //########################################## Exponential Series's Summation ################################
 // /** Exponential Series with loops
@@ -15,15 +15,21 @@ import { memoizedFactorial } from "./memoizedFactorial";
 //   }
 //   return result;
 // }
-export const exponentialSeries = (x: number, n: number): number => {
-  return (
+
+const factorial = x => (x === 0 ? 1 : factorial(x - 1) * x);
+const memoizedFactorial = memoize(factorial);
+const expo = (x, n) => Math.pow(x, n);
+
+export const exponentialSeries = (x, n) => {
+  x = Number(x);
+  n = Number(n);
+  const result =
     1 +
     x +
     Array.from(Array(n - 1).keys())
       .map(n => n + 2)
       .map(n => expo(x, n) / memoizedFactorial(n))
-      .reduce((a, c) => a + c)
-  );
+      .reduce((a, c) => a + c);
+  console.log(result);
+  return result;
 };
-
-const expo = (x, n): number => Math.pow(x, n);

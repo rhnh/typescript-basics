@@ -78,6 +78,7 @@ export function displayModal(callBack, desc, numberInputBox) {
     if (Array.isArray(v)) {
       v = v.join();
     }
+    console.log(v);
     result.innerText = v;
   });
   modalForm.appendChild(result);
