@@ -11,7 +11,7 @@ import * as funcs from "./app/utils";
 import * as render from "./app/render";
 import { mjb } from "./app/marie_jose_bertin";
 import { flip } from "./app/flip";
-
+import { taylorSeriesHorner } from "./app/taylor-series-horner";
 //#################################################
 //Handshake
 const flipBtn = render.createButton("flip-number", "Flip The Number");
@@ -120,4 +120,17 @@ memoizedFibBtn.addEventListener("click", () => {
   const desc = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...";
   const numberOfInputBox = 1;
   render.displayModal(fib, desc, numberOfInputBox);
+});
+
+//#################################################
+//exponential Series
+const taylor = render.createButton(
+  "exponential-taylor",
+  "Taylor Exponential series horner rules"
+);
+taylor.addEventListener("click", () => {
+  const desc =
+    " e^x = 1 + x + (x^2)/2! + (x^3)/3! +( x^4)/4! + (x^5)/5! +... + (x^n)/n!";
+  const numberOfInputBox = 2;
+  render.displayModal(taylorSeriesHorner, desc, numberOfInputBox);
 });

@@ -30,6 +30,5 @@ export const exponentialSeries = (x, n) => {
       .map(n => n + 2)
       .map(n => expo(x, n) / memoizedFactorial(n))
       .reduce((a, c) => a + c);
-  console.log(result);
   return result;
 };
