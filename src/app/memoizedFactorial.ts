@@ -1,9 +1,5 @@
-export const memoized = fn => {
-  const table = {};
-  return arg => table[arg] || fn(arg);
-};
-
+import { memoize } from "./utils";
 export const factorial = (num: number): number =>
   num < 2 ? 1 : +num * factorial(+num - 1);
 
-export const memoizedFactorial = memoized(factorial);
+export const memoizedFactorial = memoize(factorial);
